@@ -9,6 +9,7 @@ const continents = {
 
 const destinationData = [
   ['Japan', 'Mount Fuji', 'Scenic climbs and iconic sunrise views.', 'https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&w=1200&q=80'],
+  ['Japan', 'Mount Fuji', 'Scenic climbs and iconic sunrise views.', 'https://images.pexels.com/photos/161401/fuji-mountain-sky-mountain-range-161401.jpeg'],
   ['Japan', 'Tokyo', 'Future-city nightlife and world-class cuisine.', 'https://images.pexels.com/photos/2187605/pexels-photo-2187605.jpeg'],
   ['Japan', 'Kyoto', 'Ancient temples and timeless cultural districts.', 'https://images.pexels.com/photos/402028/pexels-photo-402028.jpeg'],
   ['Japan', 'Osaka', 'Street food and modern entertainment hubs.', 'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg'],
@@ -120,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('touchstart', unlockAudio, { once: true });
     window.addEventListener('keydown', unlockAudio, { once: true });
   }
+  if (song) song.play().catch(() => {});
 });
 
 window.updateContinentInfo = continent => {
