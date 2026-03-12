@@ -81,6 +81,14 @@
 
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
+  const getContinentHit = e => {
+    const rect = renderer.domElement.getBoundingClientRect();
+    mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    raycaster.setFromCamera(mouse, camera);
+    return raycaster.intersectObjects(clickTargets, false)[0];
+  };
+
   const clickTargets = Object.entries(continentAnchors).map(([name, [lat, lon]]) => {
     const mesh = new THREE.Mesh(new THREE.SphereGeometry(0.065, 12, 12), new THREE.MeshBasicMaterial({ color: 0x1498cc, transparent: true, opacity: 0.01 }));
     mesh.position.copy(llToVec3(lat, lon, 1.4));
@@ -89,13 +97,18 @@
     return mesh;
   });
 
+  renderer.domElement.addEventListener('mousemove', e => {
+    const hit = getContinentHit(e);
+    renderer.domElement.style.cursor = hit ? 'pointer' : 'grab';
+  });
+
   renderer.domElement.addEventListener('click', e => {
-    const rect = renderer.domElement.getBoundingClientRect();
-    mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-    mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
-    raycaster.setFromCamera(mouse, camera);
-    const hit = raycaster.intersectObjects(clickTargets, false)[0];
-    if (hit && window.updateContinentInfo) window.updateContinentInfo(hit.object.userData.continent);
+    const hit = getContinentHit(e);
+    if (!hit) return;
+
+    const continent = hit.object.userData.continent;
+    if (window.updateContinentInfo) window.updateContinentInfo(continent);
+    if (window.navigateToContinent) window.navigateToContinent(continent);
   });
 
   const onResize = () => {
