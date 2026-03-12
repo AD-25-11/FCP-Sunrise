@@ -7,6 +7,11 @@ const continents = {
   Australia: { countries: ['Australia', 'New Zealand'] }
 };
 
+const countryToContinent = Object.fromEntries(
+  Object.entries(continents)
+    .flatMap(([continent, data]) => data.countries.map(country => [country, continent]))
+);
+
 const destinationData = [
   ['Japan', 'Mount Fuji', 'Scenic climbs and iconic sunrise views.', 'https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&w=1200&q=80'],
   ['Japan', 'Mount Fuji', 'Scenic climbs and iconic sunrise views.', 'https://images.pexels.com/photos/161401/fuji-mountain-sky-mountain-range-161401.jpeg'],
@@ -59,11 +64,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const destinationGrid = document.getElementById('destinationGrid');
   if (destinationGrid) {
-    destinationGrid.innerHTML = destinationData.map((d, i) => `
+    const selectedContinent = new URLSearchParams(window.location.search).get('continent');
+    const visibleDestinations = selectedContinent
+      ? destinationData.filter(([country]) => countryToContinent[country] === selectedContinent)
+      : destinationData;
+
+    destinationGrid.innerHTML = visibleDestinations.map((d, i) => `
       <article class="destination-card" data-aos="fade-up" data-aos-delay="${(i % 3) * 80}">
         <img src="${d[3]}" alt="${d[1]}" />
         <div class="content"><h3>${d[0]} - ${d[1]}</h3><p>${d[2]}</p><a class="btn btn-primary" href="contact.html">Book / Inquire</a></div>
       </article>`).join('');
+
+    if (!visibleDestinations.length) {
+      destinationGrid.innerHTML = `<article class="destination-card"><div class="content"><h3>${selectedContinent}</h3><p>More curated packages are coming soon for this region.</p><a class="btn btn-primary" href="contact.html">Ask About ${selectedContinent}</a></div></article>`;
+    }
   }
 
   const servicesGrid = document.getElementById('servicesGrid');
@@ -127,5 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
 window.updateContinentInfo = continent => {
   const panel = document.getElementById('continentInfo');
   if (!panel || !continents[continent]) return;
-  panel.innerHTML = `<h3>${continent}</h3><p>${continents[continent].countries.join(' • ')}</p><a href="destinations.html" class="btn btn-primary">Explore ${continent}</a>`;
+  panel.innerHTML = `<h3>${continent}</h3><p>${continents[continent].countries.join(' • ')}</p><a href="destinations.html?continent=${encodeURIComponent(continent)}" class="btn btn-primary">Explore ${continent}</a>`;
+};
+
+window.navigateToContinent = continent => {
+  if (!continents[continent]) return;
+  window.location.href = `destinations.html?continent=${encodeURIComponent(continent)}`;
 };
