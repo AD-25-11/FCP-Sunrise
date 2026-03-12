@@ -9,14 +9,10 @@
 </head>
 <body>
 <header class="site-header"><nav class="navbar container"><a href="index.html" class="brand"><img class="brand-logo-img" src="logo.jpg" alt="FCP Sunrise logo" /><span><strong>FCP Sunrise</strong><small>Travel & Tours Inc.</small></span></a><button class="menu-toggle" aria-label="Toggle Menu">☰</button><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="destinations.html">Destinations</a></li><li><a href="services.html">Services</a></li><li><a href="booking.html">Booking</a></li><li><a class="active" href="contact.html">Contact</a></li></ul></nav></header>
+<header class="site-header"><nav class="navbar container"><a href="index.html" class="brand"><img class="logo" src="logo.jpg" alt="FCP Sunrise Travel & Tours Logo" /><span><strong>FCP Sunrise</strong><small>Travel & Tours Inc.</small></span></a><button class="menu-toggle" aria-label="Toggle Menu">☰</button><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="destinations.html">Destinations</a></li><li><a href="services.html">Services</a></li><li><a href="booking.html">Booking</a></li><li><a class="active" href="contact.html">Contact</a></li></ul></nav></header>
 <main class="subpage-main">
-  <section class="sub-hero container"><h1>Send Your Travel Inquiry</h1><p>Email: fcpsunrise@gmail.com • Mobile: 0917-148-2019</p></section>
   <section class="sub-hero container"><h1>Send Your Travel Inquiry</h1><p>Email: FCPSUNRISE@gmail.com • Mobile: 0917-148-2019</p></section>
   <section class="container contact-layout">
-    <form class="glass-form" id="inquiryForm">
-      <div><label>Name</label><input type="text" name="name" required /></div>
-      <div><label>Email</label><input type="email" name="email" required /></div>
-      <div><label>Phone</label><input type="tel" name="phone" required /></div>
     <form class="glass-form formsubmit-form" id="inquiryForm" action="https://formsubmit.co/FCPSUNRISE@gmail.com" method="POST">
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_next" value="thankyou.html" />
@@ -25,9 +21,6 @@
       <div><label>Email Address</label><input type="email" name="email" required /></div>
       <div><label>Phone Number</label><input type="tel" name="phone" required /></div>
       <div><label>Destination</label><input type="text" name="destination" required /></div>
-      <div><label>Travel Date</label><input type="date" name="travelDate" required /></div>
-      <div class="full"><label>Message</label><textarea name="message" rows="5" required></textarea></div>
-      <button class="btn btn-primary" type="submit">Submit Inquiry</button>
       <div><label>Travel Date</label><input type="date" name="travel_date" required /></div>
       <div><label>Number of Travelers</label><input type="number" name="travelers" min="1" value="1" required /></div>
       <div class="full"><label>Message / Inquiry</label><textarea name="message" rows="5" required></textarea></div>
@@ -38,11 +31,7 @@
       <h3>Office Locations</h3>
       <p><strong>Main Branch:</strong> Sto. Tomas, Batangas, Philippines</p>
       <p><strong>Branch Office:</strong> Canlubang, Laguna, Philippines</p>
-      <p id="formResponse">We usually respond within 24 hours.</p>
       <p>All inquiry emails are delivered directly to <strong>FCPSUNRISE@gmail.com</strong>.</p>
     </aside>
   </section>
 </main>
-<script src="js/script.js"></script>
-</body>
-</html>
