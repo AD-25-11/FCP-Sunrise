@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FCP Sunrise Travel & Tours Inc. | Creating Memories. Breaking the Distance.</title>
+  <meta name="description" content="FCP Sunrise Travel & Tours Inc. - Premium tours, flight booking, visa assistance, and travel services." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="preloader" aria-hidden="true">
+    <div class="loader-sky"></div>
+    <div class="route route-1"></div>
+    <div class="route route-2"></div>
+    <div class="route route-3"></div>
+    <div class="loader-plane">✈</div>
+    <h1>FCP Sunrise Travel & Tours Inc.</h1>
+    <p>Creating Memories. Breaking the Distance.</p>
+  </div>
+
+  <audio id="themeSong" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html" class="brand">
+        <img class="brand-logo-img" src="logo.png" alt="FCP Sunrise logo" />
+        <span>
+          <strong>FCP Sunrise</strong>
+          <small>Travel & Tours Inc.</small>
+        </span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <video class="hero-video" autoplay muted loop playsinline poster="https://images.pexels.com/photos/3889987/pexels-photo-3889987.jpeg">
+        <source src="https://videos.pexels.com/video-files/2533515/2533515-hd_1920_1080_24fps.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content" data-aos="fade-up">
+        <p class="kicker">Main Branch: Sto. Tomas, Batangas • Branch Office: Canlubang, Laguna</p>
+        <h1>Creating Memories.<br />Breaking the Distance.</h1>
+        <p>Premium travel experiences, visa support, and world-class tours for local and international destinations.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="booking.html">Book a Trip</a>
+          <a class="btn btn-ghost" href="destinations.html">Explore Destinations</a>
+        </div>
+      </div>
+      <div class="hero-plane">✈</div>
+    </section>
+
+    <section class="stats container">
+      <div class="stat-card" data-aos="zoom-in"><h3 data-count="72">0</h3><p>Countries Covered</p></div>
+      <div class="stat-card" data-aos="zoom-in" data-aos-delay="100"><h3 data-count="12000">0</h3><p>Happy Travelers</p></div>
+      <div class="stat-card" data-aos="zoom-in" data-aos-delay="200"><h3 data-count="4600">0</h3><p>Tours Completed</p></div>
+      <div class="stat-card" data-aos="zoom-in" data-aos-delay="300"><h3 data-count="12">0</h3><p>Years of Experience</p></div>
+    </section>
+
+    <section class="slider-section container" data-aos="fade-up">
+      <div class="section-head">
+        <h2>Featured Tour Packages</h2>
+        <p>Curated adventures designed by travel consultants.</p>
+      </div>
+      <div class="swiper package-swiper">
+        <div class="swiper-wrapper">
+          <article class="swiper-slide package-card">
+            <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg" alt="Tokyo" />
+            <div><h3>Japan Sakura Escape</h3><p>Tokyo, Kyoto, Osaka • 5D/4N</p></div>
+          </article>
+          <article class="swiper-slide package-card">
+            <img src="https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg" alt="Singapore" />
+            <div><h3>Singapore City Lights</h3><p>Marina Bay, Sentosa, Universal • 4D/3N</p></div>
+          </article>
+          <article class="swiper-slide package-card">
+            <img src="https://images.pexels.com/photos/2531190/pexels-photo-2531190.jpeg" alt="Korea" />
+            <div><h3>Korea K-Adventure</h3><p>Seoul, Nami, Jeju • 6D/5N</p></div>
+          </article>
+          <article class="swiper-slide package-card">
+            <img src="https://images.pexels.com/photos/2253832/pexels-photo-2253832.jpeg" alt="Hong Kong" />
+            <div><h3>Hong Kong Family Fun</h3><p>Disneyland, Peak, Victoria Harbour • 3D/2N</p></div>
+          </article>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <section class="globe-section" data-aos="fade-up">
+      <div class="container globe-layout">
+        <div>
+          <h2>3D Interactive World Explorer</h2>
+          <p>Click a continent on the globe to reveal countries and featured attractions.</p>
+          <div id="continentInfo" class="glass-panel">
+            <h3>Select a continent</h3>
+            <p>Asia, Europe, North America, South America, Africa, Australia</p>
+          </div>
+        </div>
+        <div id="globeCanvas" aria-label="3D Globe"></div>
+      </div>
+    </section>
+  </main>
+
+  <a class="floating-book" href="booking.html">✈ Book Now</a>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>FCP Sunrise Travel & Tours Inc.</h3>
+        <p>Creating Memories. Breaking the Distance.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Email: fcpsunrise@gmail.com</p>
+        <p>Mobile: 0917-148-2019</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

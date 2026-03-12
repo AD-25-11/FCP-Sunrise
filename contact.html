@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | FCP Sunrise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header class="site-header"><nav class="navbar container"><a href="index.html" class="brand"><img class="brand-logo-img" src="logo.png" alt="FCP Sunrise logo" /><span><strong>FCP Sunrise</strong><small>Travel & Tours Inc.</small></span></a><button class="menu-toggle">☰</button><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="destinations.html">Destinations</a></li><li><a href="services.html">Services</a></li><li><a href="booking.html">Booking</a></li><li><a class="active" href="contact.html">Contact</a></li></ul></nav></header>
+<main class="subpage-main">
+  <section class="sub-hero container"><h1>Send Your Travel Inquiry</h1><p>Email: fcpsunrise@gmail.com • Mobile: 0917-148-2019</p></section>
+  <section class="container contact-layout">
+    <form class="glass-form" id="inquiryForm">
+      <div><label>Name</label><input type="text" name="name" required /></div>
+      <div><label>Email</label><input type="email" name="email" required /></div>
+      <div><label>Phone</label><input type="tel" name="phone" required /></div>
+      <div><label>Destination</label><input type="text" name="destination" required /></div>
+      <div><label>Travel Date</label><input type="date" name="travelDate" required /></div>
+      <div class="full"><label>Message</label><textarea name="message" rows="5" required></textarea></div>
+      <button class="btn btn-primary" type="submit">Submit Inquiry</button>
+    </form>
+    <aside class="glass-panel">
+      <h3>Office Locations</h3>
+      <p><strong>Main Branch:</strong> Sto. Tomas, Batangas, Philippines</p>
+      <p><strong>Branch Office:</strong> Canlubang, Laguna, Philippines</p>
+      <p id="formResponse">We usually respond within 24 hours.</p>
+    </aside>
+  </section>
+</main>
+<script src="js/script.js"></script>
+</body>
+</html>
