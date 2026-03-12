@@ -4,13 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Flight Booking | FCP Sunrise</title>
+  <title>Booking | FCP Sunrise</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<header class="site-header"><nav class="navbar container"><a href="index.html" class="brand"><img class="brand-logo-img" src="logo.png" alt="FCP Sunrise logo" /><span><strong>FCP Sunrise</strong><small>Travel & Tours Inc.</small></span></a><button class="menu-toggle" aria-label="Toggle Menu">☰</button><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="destinations.html">Destinations</a></li><li><a href="services.html">Services</a></li><li><a class="active" href="booking.html">Booking</a></li><li><a href="contact.html">Contact</a></li></ul></nav></header>
+<header class="site-header"><nav class="navbar container"><a href="index.html" class="brand"><img class="brand-logo-img" src="logo.jpg" alt="FCP Sunrise logo" /><span><strong>FCP Sunrise</strong><small>Travel & Tours Inc.</small></span></a><button class="menu-toggle" aria-label="Toggle Menu">☰</button><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="destinations.html">Destinations</a></li><li><a href="services.html">Services</a></li><li><a class="active" href="booking.html">Booking</a></li><li><a href="contact.html">Contact</a></li></ul></nav></header>
 <main class="subpage-main">
   <section class="sub-hero container"><h1>Airline Booking Interface</h1><p>Search demo flights and connect with our consultants to finalize your itinerary.</p></section>
+  <section class="sub-hero container"><h1>Book Your Travel Plan</h1><p>Submit your booking request and our consultants will contact you right away.</p></section>
   <section class="container">
     <form class="glass-form" id="flightSearchForm">
       <div><label>From</label><input type="text" name="from" required placeholder="Manila" /></div>
@@ -19,6 +21,19 @@
       <div><label>Return Date</label><input type="date" name="return" /></div>
       <div><label>Passengers</label><input type="number" name="passengers" min="1" max="10" value="1" required /></div>
       <button class="btn btn-primary" type="submit">Search Flights</button>
+    <form class="glass-form formsubmit-form" id="bookingForm" action="https://formsubmit.co/FCPSUNRISE@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="thankyou.html" />
+      <input type="hidden" name="_subject" value="New Travel Inquiry - FCP Sunrise Website" />
+      <div><label>Full Name</label><input type="text" name="name" required /></div>
+      <div><label>Email Address</label><input type="email" name="email" required /></div>
+      <div><label>Phone Number</label><input type="tel" name="phone" required /></div>
+      <div><label>Destination</label><input type="text" name="destination" required placeholder="Japan" /></div>
+      <div><label>Travel Date</label><input type="date" name="travel_date" required /></div>
+      <div><label>Number of Travelers</label><input type="number" name="travelers" min="1" value="1" required /></div>
+      <div class="full"><label>Message / Inquiry</label><textarea name="message" rows="5" required placeholder="Tell us your preferred package, hotel, or flight details."></textarea></div>
+      <button class="btn btn-primary" type="submit">Book Now</button>
+      <p class="full form-status" aria-live="polite"></p>
     </form>
     <div id="flightResults" class="results-table"></div>
   </section>
