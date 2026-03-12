@@ -1,0 +1,46 @@
+
+const inputBody = {
+    "tasks": {
+        "import": {
+            "operation": "import/upload"
+        },
+        "convert": {
+            "operation": "convert",
+            "input": "import",
+            "input_format": "mp3",
+            "output_format": "wav",
+            "options": {
+                "audio_codec": "auto",
+                "audio_filter_volume": 100,
+                "audio_filter_fade_in": false,
+                "audio_filter_fade_out": false,
+                "audio_filter_reverse": false,
+                "cut_start": "00:00:00.00",
+                "cut_end": "00:00:00.00"
+            }
+        },
+        "export-url": {
+            "operation": "export/url",
+            "input": [
+                "convert"
+            ]
+        }
+    }
+};
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'Authorization':'Bearer {access-token}'
+};
+
+fetch('https://api.freeconvert.com/v1/process/jobs',
+{
+  method: 'POST',
+  body: JSON.stringify(inputBody),
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
